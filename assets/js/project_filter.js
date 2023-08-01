@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
         const projectCategory = document.createElement("p");
         projectCategory.className = "project-category";
-        projectCategory.textContent = project.category;
+        projectCategory.textContent = "Programming Language : " + project.language;
   
         link.appendChild(figure);
         link.appendChild(projectName);

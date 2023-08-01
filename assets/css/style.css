@@ -993,7 +993,7 @@ main {
 .project-item > a:hover img { transform: scale(1.1); }
 
 .project-title,
-.project-category { margin-left: 10px; }
+.project-category { margin-left: 10px; margin-top: 5px; }
 
 .project-title {
   color: var(--white-2);
