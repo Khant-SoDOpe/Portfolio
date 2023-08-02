@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("assets/data/projects.json")
+  fetch("https://projects.khantzay1.repl.co/api/projects")
     .then((response) => response.json())
     .then((jsonData) => {
       // Extract unique categories from jsonData
@@ -11,51 +11,51 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch((error) => console.error("Error fetching data:", error));
 
-    function populateProjectsFromJSON(jsonData) {
-      const projectList = document.querySelector(".project-list");
-  
-      jsonData.forEach((project) => {
-        const projectItem = document.createElement("li");
-        projectItem.className = "project-item active";
-        projectItem.dataset.filterItem = true;
-        projectItem.dataset.category = project.category.toLowerCase();
-  
-        const link = document.createElement("a");
-        link.href = "#";
-  
-        const figure = document.createElement("figure");
-        figure.className = "project-img";
-  
-        const iconBox = document.createElement("div");
-        iconBox.className = "project-item-icon-box";
-        const icon = document.createElement("ion-icon");
-        icon.name = "eye-outline";
-        iconBox.appendChild(icon);
-  
-        const projectImg = document.createElement("img");
-        projectImg.src = project.image;
-        projectImg.alt = project.alt;
-        projectImg.loading = "lazy";
-  
-        figure.appendChild(iconBox);
-        figure.appendChild(projectImg);
-  
-        const projectName = document.createElement("h3");
-        projectName.className = "project-title";
-        projectName.textContent = project.name;
-  
-        const projectCategory = document.createElement("p");
-        projectCategory.className = "project-category";
-        projectCategory.textContent = "Programming Language : " + project.language;
-  
-        link.appendChild(figure);
-        link.appendChild(projectName);
-        link.appendChild(projectCategory);
-        projectItem.appendChild(link);
-  
-        projectList.appendChild(projectItem);
-      });
-    }
+  function populateProjectsFromJSON(jsonData) {
+    const projectList = document.querySelector(".project-list");
+
+    jsonData.forEach((project) => {
+      const projectItem = document.createElement("li");
+      projectItem.className = "project-item active";
+      projectItem.dataset.filterItem = true;
+      projectItem.dataset.category = project.category.toLowerCase();
+
+      const link = document.createElement("a");
+      link.href = "#";
+
+      const figure = document.createElement("figure");
+      figure.className = "project-img";
+
+      const iconBox = document.createElement("div");
+      iconBox.className = "project-item-icon-box";
+      const icon = document.createElement("ion-icon");
+      icon.name = "eye-outline";
+      iconBox.appendChild(icon);
+
+      const projectImg = document.createElement("img");
+      projectImg.src = project.image;
+      projectImg.alt = project.alt;
+      projectImg.loading = "lazy";
+
+      figure.appendChild(iconBox);
+      figure.appendChild(projectImg);
+
+      const projectName = document.createElement("h3");
+      projectName.className = "project-title";
+      projectName.textContent = project.name;
+
+      const projectCategory = document.createElement("p");
+      projectCategory.className = "project-category";
+      projectCategory.textContent = "Programming Language: " + project.language;
+
+      link.appendChild(figure);
+      link.appendChild(projectName);
+      link.appendChild(projectCategory);
+      projectItem.appendChild(link);
+
+      projectList.appendChild(projectItem);
+    });
+  }
 
   function createFilterButtons(categories, containerClass) {
     const container = document.querySelector(`.${containerClass}`);
