@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
       projectItem.dataset.category = project.category.toLowerCase();
 
       const link = document.createElement("a");
-      link.href = "#";
+      link.href = project.url;
 
       const figure = document.createElement("figure");
       figure.className = "project-img";
