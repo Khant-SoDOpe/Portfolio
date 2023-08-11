@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("https://projects.khantzay1.repl.co/api/projects")
+  fetch("https://api-khantzay.onrender.com/api/projects")
     .then((response) => response.json())
     .then((jsonData) => {
       // Extract unique categories from jsonData
