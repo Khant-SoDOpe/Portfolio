@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const projectList = document.querySelector(".project-list");
 
     jsonData.forEach((project) => {
+      console.log(project);
       const projectItem = document.createElement("li");
       projectItem.className = "project-item active";
       projectItem.dataset.filterItem = true;
@@ -123,4 +124,70 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+});
+
+
+// Function to fetch data from the API
+async function fetchData() {
+  try {
+    const response = await fetch('https://api-khantzay.onrender.com/api/blogs');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return null;
+  }
+}
+
+// Function to render blog posts from the fetched data
+function renderBlogPosts(posts) {
+  const blogPostList = document.getElementById('blog-post-list');
+  posts.forEach((post) => {
+    const listItem = document.createElement('li');
+    listItem.classList.add('blog-post-item');
+    listItem.innerHTML = `
+      <a href="#">
+        <figure class="blog-banner-box">
+          <img src="${post.image}" alt="Blog" loading="lazy">
+        </figure>
+        <div class="blog-content">
+          <div class="blog-meta">
+            <p class="blog-category">${post.category}</p>
+            <span class="dot"></span>
+            <time datetime="${post.date}">${post.date}</time>
+          </div>
+          <h3 class="h3 blog-item-title">${post.title}</h3>
+          <p class="blog-text">${post.content}</p>
+        </div>
+      </a>
+    `;
+    blogPostList.appendChild(listItem);
+  });
+}
+
+// Function to fetch data from your API endpoint
+async function fetchData() {
+  try {
+    const response = await fetch('https://api-khantzay.onrender.com/api/blogs'); // Change this URL to match your API endpoint
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return null;
+  }
+}
+
+// Fetch data and render blog posts when the page loads
+window.addEventListener('load', () => {
+  fetchData().then((data) => {
+    if (data) {
+      renderBlogPosts(data); // Assuming 'data' is an array of blog post objects from your API response
+    }
+  });
 });
