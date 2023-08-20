@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const link = document.createElement("a");
       link.href = project.url;
+      link.target = "_blank";
 
       const figure = document.createElement("figure");
       figure.className = "project-img";
@@ -149,7 +150,7 @@ function renderBlogPosts(posts) {
     const listItem = document.createElement('li');
     listItem.classList.add('blog-post-item');
     listItem.innerHTML = `
-      <a href="#">
+      <a target="blank" href="${post.link}">
         <figure class="blog-banner-box">
           <img src="${post.image}" alt="Blog" loading="lazy">
         </figure>
