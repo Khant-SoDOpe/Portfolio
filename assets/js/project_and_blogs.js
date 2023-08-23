@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const projectImg = document.createElement("img");
       projectImg.src = project.image;
       projectImg.alt = project.alt;
+      projectImg.style = "height: 165px;width: 259px;"
       projectImg.loading = "lazy";
 
       figure.appendChild(iconBox);
