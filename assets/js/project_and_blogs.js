@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const projectItem = document.createElement("li");
       projectItem.className = "project-item active";
       projectItem.dataset.filterItem = true;
-      projectItem.dataset.category = project.category.toLowerCase();
+      projectItem.dataset.category = project.category;
 
       const link = document.createElement("a");
       link.href = project.url;
@@ -72,11 +72,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add event listeners to filter buttons
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        const category = button.textContent.toLowerCase();
+        const category = button.textContent;
         const projectItems = document.querySelectorAll(".project-item");
 
         projectItems.forEach((item) => {
-          if (category === "all" || item.dataset.category === category) {
+          if (category === "All" || item.dataset.category === category) {
             item.style.display = "block";
           } else {
             item.style.display = "none";
@@ -106,11 +106,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add event listeners to select buttons
     selectButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        const category = button.textContent.toLowerCase();
+        const category = button.textContent;
         const projectItems = document.querySelectorAll(".project-item");
 
         projectItems.forEach((item) => {
-          if (category === "all" || item.dataset.category === category) {
+          if (category === "All" || item.dataset.category === category) {
             item.style.display = "block";
           } else {
             item.style.display = "none";
