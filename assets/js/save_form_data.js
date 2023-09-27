@@ -31,7 +31,7 @@ contactForm.addEventListener('submit', function (e) {
       // Handle the success or error response from the API
       if (data.status === 'success') {
         // Show a success message to the user
-        alert('Message sent successfully!');
+        alert('Message sent successfully! ',user_name);
         
         // Clear the form fields
         user_name.value = '';
