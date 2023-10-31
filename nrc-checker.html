@@ -2,89 +2,7 @@
 <html>
 <head>
   <title>NRC Code Search</title>
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 50px;
-    }
-
-    .search-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    input[type="text"] {
-      width: 300px;
-      padding: 5px;
-      font-size: 16px;
-    }
-
-    table {
-      border-collapse: collapse;
-      width: auto;
-      max-width: 100%;
-    }
-
-    th, td {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-
-    .scrollable-table {
-      overflow-y: auto;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 600px) {
-      body {
-        padding-top: 20px;
-      }
-      input[type="text"] {
-        width: 80%;
-        max-width: 300px;
-      }
-    }
-  </style>
-   <script>
-    function searchNRC() {
-      var input = document.getElementById("input").value;
-      var output = document.getElementById("output");
-
-      fetch('assets/data/nrc-data/data.json')
-        .then(response => response.json())
-        .then(data => {
-          var entries = data.data;
-          var matchingEntries = entries.filter(e => e.nrc_code === input || extractTextWithinParentheses(e.name_mm) === input || e.city_name === input);
-          if (matchingEntries.length > 0) {
-            var matchingInfo = matchingEntries.map(e => "<tr><td>" + e.nrc_code + "</td><td>" + extractTextWithinParentheses(e.name_mm) + "</td><td>" + e.city_name + "</td></tr>");
-            output.innerHTML = "<div class='scrollable-table'><table><tr><th>NRC Code</th><th>NRC Name</th><th>City Name</th></tr>" + matchingInfo.join("") + "</table></div>";
-          } else {
-            output.innerHTML = "No matching entry found.";
-          }
-        })
-        .catch(error => {
-          console.log('Error:', error);
-          output.innerHTML = "Error fetching data.";
-        });
-    }
-    
-    function extractTextWithinParentheses(text) {
-      var matches = text.match(/\((.*?)\)/);
-      if (matches && matches.length > 0) {
-        return matches[1];
-      }
-      return "";
-    }
-  </script>
+  <link rel="stylesheet" href="assets/css/nrc-checker/styles.css">
 </head>
 <body>
   <h1>NRC Code Search</h1>
@@ -92,10 +10,11 @@
   <div class="search-container">
     <input type="text" id="input" placeholder="Search" oninput="searchNRC()">
   </div>
-  <div id="output"></div>
+  <div class="content" id="output"></div>
 
-  <footer style="margin-top: 50px; text-align: center; font-size: 14px;">
+  <footer class="footers">
     Copyright &copy; 2023 Khant Zay
   </footer>
+  <script src="assets/js/nrc-checker/script.js"></script>
 </body>
 </html>
