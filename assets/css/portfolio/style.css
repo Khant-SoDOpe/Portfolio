@@ -1167,7 +1167,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   background: var(--border-gradient-onyx);
   color: var(--orange-yellow-crayola);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Updated property */
   align-items: center;
   gap: 10px;
   padding: 13px 20px;
@@ -1205,6 +1205,55 @@ textarea.form-input::-webkit-resizer { display: none; }
 .form-btn:disabled:hover::before { background: var(--bg-gradient-jet); }
 
 
+
+
+
+
+
+
+
+
+.form-bta {
+  position: relative;
+  background: var(--border-gradient-onyx);
+  color: var(--orange-yellow-crayola);
+  display: flex;
+  justify-content: flex-start; /* Updated property */
+  align-items: center;
+  gap: 10px;
+  padding: 13px 20px;
+  border-radius: 14px;
+  font-size: var(--fs-6);
+  text-transform: capitalize;
+  box-shadow: var(--shadow-3);
+  z-index: 1;
+  transition: var(--transition-1);
+}
+
+.form-bta::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+  transition: var(--transition-1);
+}
+
+.form-bta ion-icon { font-size: 16px; }
+
+.form-bta:hover { background: var(--bg-gradient-yellow-1); }
+
+.form-bta:hover::before { background: var(--bg-gradient-yellow-2); }
+
+.form-bta:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form-bta:disabled:hover { background: var(--border-gradient-onyx); }
+
+.form-bta:disabled:hover::before { background: var(--bg-gradient-jet); }
 
 
 
