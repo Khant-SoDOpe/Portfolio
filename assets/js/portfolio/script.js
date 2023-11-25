@@ -155,3 +155,26 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+var styleSheets = [
+  "./assets/css/portfolio/style.css",
+  "./assets/css/portfolio/style1.css", // Fixed the second stylesheet path
+];
+
+var currentStyleSheet = 0;
+
+document.getElementById("styleSwitchButton").addEventListener("click", function() {
+  currentStyleSheet = (currentStyleSheet + 1) % styleSheets.length; // Switch to the next stylesheet in the array
+  changeStyleSheet(styleSheets[currentStyleSheet]);
+});
+
+function changeStyleSheet(sheet) {
+  var styleElement = document.querySelector('link[href^="./assets/css/portfolio/style"]');
+  if (styleElement) {
+    styleElement.href = sheet;
+  }
+}
+
+
+
+
