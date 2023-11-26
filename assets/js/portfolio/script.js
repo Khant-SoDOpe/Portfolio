@@ -163,8 +163,12 @@ var styleSheets = [
 
 var currentStyleSheet = 0;
 
-document.getElementById("styleSwitchButton").addEventListener("click", function() {
-  currentStyleSheet = (currentStyleSheet + 1) % styleSheets.length; // Switch to the next stylesheet in the array
+document.getElementById("myonoffswitch").addEventListener("change", function() {
+  if (this.checked) {
+    currentStyleSheet = 0; // Switch to the first stylesheet when checkbox is checked
+  } else {
+    currentStyleSheet = 1; // Switch to the second stylesheet when checkbox is unchecked
+  }
   changeStyleSheet(styleSheets[currentStyleSheet]);
 });
 
@@ -174,6 +178,7 @@ function changeStyleSheet(sheet) {
     styleElement.href = sheet;
   }
 }
+
 
 
 

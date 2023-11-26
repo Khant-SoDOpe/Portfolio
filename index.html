@@ -203,9 +203,13 @@
             <button class="navbar-link" data-nav-link>Contact</button>
           </li>
 
-          <li>
-            <button id="styleSwitchButton">Switch Style</button>
+          <li class="navbar-item">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
+              <label class="onoffswitch-label" for="myonoffswitch"></label>
+            </div>
           </li>
+          
 
 
         </ul>
@@ -765,7 +769,6 @@ Leveraging the cutting-edge capabilities of Python's Flask framework, I pride my
               </li>
               <li class="select-item">
                 <button data-select-item>Websites</button>
-              </li>
               </li>
              <li class="filter-item">
               <button data-filter-btn>Apps</button>
