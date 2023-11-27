@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("https://api-khantzay.onrender.com/api/projects")
+  fetch("https://portfolio-api.khant-sodope.repl.co/api/projects")
     .then((response) => response.json())
     .then((jsonData) => {
       // Extract unique categories from jsonData
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Function to fetch data from the API
 async function fetchData() {
   try {
-    const response = await fetch('https://api-khantzay.onrender.com/api/blogs');
+    const response = await fetch('https://portfolio-api.khant-sodope.repl.co/api/blogs');
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -172,7 +172,7 @@ function renderBlogPosts(posts) {
 // Function to fetch data from your API endpoint
 async function fetchData() {
   try {
-    const response = await fetch('https://api-khantzay.onrender.com/api/blogs'); // Change this URL to match your API endpoint
+    const response = await fetch('https://portfolio-api.khant-sodope.repl.co/api/blogs'); // Change this URL to match your API endpoint
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }

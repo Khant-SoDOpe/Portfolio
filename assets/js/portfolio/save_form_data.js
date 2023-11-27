@@ -19,7 +19,7 @@ contactForm.addEventListener('submit', function (e) {
   const jsonData = JSON.stringify(formData);
 
   // Make a POST request to the API route with JSON data
-  fetch('https://api-khantzay.onrender.com/api/contact-form', {
+  fetch('https://portfolio-api.khant-sodope.repl.co/api/contact-form', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
