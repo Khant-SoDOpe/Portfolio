@@ -19,7 +19,7 @@ contactForm.addEventListener('submit', function (e) {
   const jsonData = JSON.stringify(formData);
 
   // Make a POST request to the API route with JSON data
-  fetch('https://api-khantzay-l7wj.onrender.com/api/contact-form', {
+  fetch('http://ec2-34-229-17-84.compute-1.amazonaws.com:3000/api/contact-form', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
