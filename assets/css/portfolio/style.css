@@ -318,6 +318,10 @@
     background: var(--bg-gradient-onyx);
     border-radius: 20px;
   }
+
+  .info-content {
+    text-align: center;
+  }
   
   .info-content .name {
     color: var(--white-2);
@@ -328,6 +332,7 @@
   }
   
   .info-content .title {
+    display: inline-flex;
     color: var(--white-1);
     background: var(--onyx);
     font-size: var(--fs-8);
