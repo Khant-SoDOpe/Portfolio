@@ -1173,7 +1173,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   position: relative;
   width: 100%;
   background: var(--border-gradient-onyx);
-  color: var(--orange-yellow-crayola);
+  color: black;
   display: flex;
   justify-content: flex-start; /* Updated property */
   align-items: center;
