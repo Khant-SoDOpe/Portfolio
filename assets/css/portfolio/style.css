@@ -1234,6 +1234,10 @@
     z-index: 1;
     transition: var(--transition-1);
   }
+
+  .form-bta a{
+    color: white  ;
+  }
   
   .form-bta::before {
     content: "";

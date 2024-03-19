@@ -354,10 +354,10 @@ main {
   right: -15px;
   border-radius: 0 15px;
   font-size: 13px;
-  color: var(--orange-yellow-crayola);
+  color: black;
   background: var(--border-gradient-onyx);
   padding: 10px;
-  box-shadow: var(--shadow-2);
+  box-shadow: hsl(45, 0%, 0%);
   transition: var(--transition-1);
   z-index: 1;
 }
@@ -798,7 +798,7 @@ main {
   left: -30px;
   width: 1px;
   height: calc(100% + 50px);
-  background: var(--jet);
+  background: black;
 }
 
 .timeline-item::after {
@@ -845,7 +845,7 @@ main {
 }
 
 .skill-progress-bg {
-  background: var(--jet);
+  background: rgb(210, 209, 209);
   width: 100%;
   height: 8px;
   border-radius: 10px;
@@ -1237,6 +1237,10 @@ textarea.form-input::-webkit-resizer { display: none; }
   box-shadow: var(--shadow-3);
   z-index: 1;
   transition: var(--transition-1);
+}
+
+.form-bta a{
+  color: #000000;
 }
 
 .form-bta::before {
