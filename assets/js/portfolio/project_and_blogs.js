@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const projectList = document.querySelector(".project-list");
 
     jsonData.forEach((project) => {
-      console.log(project);
       const projectItem = document.createElement("li");
       projectItem.className = "project-item active";
       projectItem.dataset.filterItem = true;
