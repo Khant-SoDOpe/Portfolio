@@ -192,3 +192,115 @@ window.addEventListener('load', () => {
     }
   });
 });
+
+// Function to fetch education and course data from the API
+async function fetchEducationData() {
+  try {
+    const response = await fetch('https://api-khant-portfolio.vercel.app/api/educations'); // Replace 'YOUR_API_ENDPOINT' with the actual endpoint URL
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching education data:', error);
+    return null;
+  }
+}
+
+// Function to render education and course data on the page
+function renderEducationData(data) {
+  const timelineList = document.getElementById('educations');
+
+  data.forEach((item) => {
+    const listItem = document.createElement('li');
+    listItem.classList.add('timeline-item');
+    
+    const title = document.createElement('h4');
+    title.classList.add('h4', 'timeline-item-title');
+    title.textContent = item.name;
+
+    const duration = document.createElement('span');
+    duration.textContent = item.year;
+
+    const description = document.createElement('p');
+    description.classList.add('timeline-text');
+    description.textContent = item.text;
+
+    listItem.appendChild(title);
+    listItem.appendChild(duration);
+    listItem.appendChild(description);
+
+    timelineList.appendChild(listItem);
+  });
+}
+
+// Fetch education and course data and render it when the page loads
+window.addEventListener('load', () => {
+  fetchEducationData().then((data) => {
+    if (data) {
+      renderEducationData(data); // Assuming 'data' is an array of education and course objects from your API response
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+// Function to fetch experience data from the API
+async function fetchExperienceData() {
+  try {
+    const response = await fetch('https://api-khant-portfolio.vercel.app/api/experiences'); // Replace 'YOUR_API_ENDPOINT' with the actual endpoint URL
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching experience data:', error);
+    return null;
+  }
+}
+
+// Function to render experience data on the page
+function renderExperienceData(data) {
+  const timelineList = document.getElementById('experiences');
+
+  data.forEach((item) => {
+    const listItem = document.createElement('li');
+    listItem.classList.add('timeline-item');
+    
+    const title = document.createElement('h4');
+    title.classList.add('h4', 'timeline-item-title');
+    title.textContent = item['job-title'];
+
+    const duration = document.createElement('span');
+    duration.textContent = item.months;
+
+    const description = document.createElement('p');
+    description.classList.add('timeline-text');
+    description.textContent = item.text;
+
+    listItem.appendChild(title);
+    listItem.appendChild(duration);
+    listItem.appendChild(description);
+
+    timelineList.appendChild(listItem);
+  });
+}
+
+// Fetch experience data and render it when the page loads
+window.addEventListener('load', () => {
+  fetchExperienceData().then((data) => {
+    if (data) {
+      renderExperienceData(data); // Assuming 'data' is an array of experience objects from your API response
+    }
+  });
+});
