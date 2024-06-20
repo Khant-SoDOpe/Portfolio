@@ -180,6 +180,19 @@ function changeStyleSheet(sheet) {
 }
 
 
-
-
-
+document.addEventListener('DOMContentLoaded', () => {
+  const cvLink = document.querySelector('.cv-link');
+  
+  fetch('https://api-khant-portfolio.vercel.app/api/cv-link')
+      .then(response => response.json())
+      .then(data => {
+          if (data[0] && data[0]['cv-link']) {
+              cvLink.href = data[0]['cv-link'];
+          } else {
+              console.error('No cv-link found in the response.');
+          }
+      })
+      .catch(error => {
+          console.error('Error fetching the CV link:', error);
+      });
+});
